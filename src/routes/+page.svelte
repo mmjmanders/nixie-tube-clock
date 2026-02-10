@@ -1,14 +1,14 @@
 <script lang="ts">
-	import nixie0 from '$lib/assets/Nixie 0.svg?raw';
-	import nixie1 from '$lib/assets/Nixie 1.svg?raw';
-	import nixie2 from '$lib/assets/Nixie 2.svg?raw';
-	import nixie3 from '$lib/assets/Nixie 3.svg?raw';
-	import nixie4 from '$lib/assets/Nixie 4.svg?raw';
-	import nixie5 from '$lib/assets/Nixie 5.svg?raw';
-	import nixie6 from '$lib/assets/Nixie 6.svg?raw';
-	import nixie7 from '$lib/assets/Nixie 7.svg?raw';
-	import nixie8 from '$lib/assets/Nixie 8.svg?raw';
-	import nixie9 from '$lib/assets/Nixie 9.svg?raw';
+	import nixie0 from '$lib/assets/Nixie 0.svg';
+	import nixie1 from '$lib/assets/Nixie 1.svg';
+	import nixie2 from '$lib/assets/Nixie 2.svg';
+	import nixie3 from '$lib/assets/Nixie 3.svg';
+	import nixie4 from '$lib/assets/Nixie 4.svg';
+	import nixie5 from '$lib/assets/Nixie 5.svg';
+	import nixie6 from '$lib/assets/Nixie 6.svg';
+	import nixie7 from '$lib/assets/Nixie 7.svg';
+	import nixie8 from '$lib/assets/Nixie 8.svg';
+	import nixie9 from '$lib/assets/Nixie 9.svg';
 
 	let time = $state<Date>(new Date());
 
@@ -28,8 +28,8 @@
 </script>
 
 <div class="clock">
-	<div class="digit">{@html nixies[hourLeft]}</div>
-	<div class="digit">{@html nixies[hourRight]}</div>
-	<div class="digit">{@html nixies[minuteLeft]}</div>
-	<div class="digit">{@html nixies[minuteRight]}</div>
+	<div class="digit"><img alt={hourLeft.toString()} src={nixies[hourLeft]} /></div>
+	<div class="digit"><img alt={hourRight.toString()} src={nixies[hourRight]} /></div>
+	<div class="digit"><img alt={minuteLeft.toString()} src={nixies[minuteLeft]} /></div>
+	<div class="digit"><img alt={minuteRight.toString()} src={nixies[minuteRight]} /></div>
 </div>
