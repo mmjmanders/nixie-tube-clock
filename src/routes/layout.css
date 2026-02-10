@@ -10,11 +10,15 @@
 	}
 
 	main {
-		@apply mx-auto w-full max-w-5xl p-4;
+		@apply mx-auto flex w-full max-w-5xl flex-col items-center p-4;
 	}
 }
 
 @layer components {
+	.clock-container {
+		@apply w-full;
+	}
+
 	.clock {
 		@apply flex;
 	}
