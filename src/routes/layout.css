@@ -1,1 +1,25 @@
 @import 'tailwindcss';
+
+@theme {
+	--color-background: #150910;
+}
+
+@layer base {
+	body {
+		@apply bg-background;
+	}
+
+	main {
+		@apply mx-auto w-full max-w-5xl p-4;
+	}
+}
+
+@layer components {
+	.clock {
+		@apply flex;
+	}
+
+	.clock > .digit {
+		@apply flex-1;
+	}
+}
