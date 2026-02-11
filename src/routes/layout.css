@@ -2,6 +2,8 @@
 
 @theme {
 	--color-background: #150910;
+	--color-primary: color-mix(in srgb, var(--color-background), #fff);
+	--font-mono: 'Sixtyfour Variable', monospace;
 }
 
 @layer base {
@@ -16,7 +18,7 @@
 
 @layer components {
 	.clock-container {
-		@apply w-full;
+		@apply flex w-full flex-col gap-2;
 	}
 
 	.clock {
@@ -25,5 +27,9 @@
 
 	.clock > .digit {
 		@apply flex-1;
+	}
+
+	.version {
+		@apply flex justify-center font-mono text-xl text-primary;
 	}
 }
