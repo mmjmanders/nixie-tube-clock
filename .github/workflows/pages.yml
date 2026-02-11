@@ -15,7 +15,7 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm i --frozen-lockfile
-      - run: pnpm build
+      - run: PUBLIC_COMMIT_SHA=$(git rev-parse --short HEAD) pnpm build
         env:
           BASE_PATH: /${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v4

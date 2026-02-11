@@ -2,6 +2,8 @@
 
 @theme {
 	--color-background: #150910;
+	--color-primary: color-mix(in srgb, var(--color-background), #fff);
+	--font-mono: 'Sixtyfour Variable', monospace;
 }
 
 @layer base {
@@ -10,20 +12,24 @@
 	}
 
 	main {
-		@apply mx-auto flex w-full max-w-5xl flex-col items-center p-4;
+		@apply flex w-full flex-col items-center p-4;
 	}
 }
 
 @layer components {
 	.clock-container {
-		@apply w-full;
+		@apply flex w-full flex-col gap-2;
 	}
 
 	.clock {
-		@apply flex;
+		@apply flex gap-2;
 	}
 
 	.clock > .digit {
 		@apply flex-1;
+	}
+
+	.version {
+		@apply flex justify-center font-mono text-xl text-primary;
 	}
 }

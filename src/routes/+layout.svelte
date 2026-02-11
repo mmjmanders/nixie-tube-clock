@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '@fontsource-variable/sixtyfour/full.css';
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import appleTouchIcon from '$lib/assets/apple-touch-icon-180x180.png';
