@@ -30,6 +30,6 @@
 	}
 
 	.version {
-		@apply flex justify-center font-mono text-xl text-primary;
+		@apply flex justify-center font-mono text-xs text-primary;
 	}
 }
