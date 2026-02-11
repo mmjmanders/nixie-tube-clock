@@ -10,7 +10,7 @@
 	}
 
 	main {
-		@apply mx-auto flex w-full max-w-5xl flex-col items-center p-4;
+		@apply flex w-full flex-col items-center p-4;
 	}
 }
 
@@ -20,7 +20,7 @@
 	}
 
 	.clock {
-		@apply flex;
+		@apply flex gap-2;
 	}
 
 	.clock > .digit {
