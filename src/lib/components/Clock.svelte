@@ -4,39 +4,26 @@
 	const [hours, minutes] = $derived(time.toLocaleTimeString().split(':'));
 	const [hourLeft, hourRight] = $derived(hours.split('').map(Number));
 	const [minuteLeft, minuteRight] = $derived(minutes.split('').map(Number));
-
-	const hourLeftSvg = $derived(
-		import(`../assets/Nixie ${hourLeft}.svg?raw`).then((m) => m.default)
-	);
-	const hourRightSvg = $derived(
-		import(`../assets/Nixie ${hourRight}.svg?raw`).then((m) => m.default)
-	);
-	const minuteLeftSvg = $derived(
-		import(`../assets/Nixie ${minuteLeft}.svg?raw`).then((m) => m.default)
-	);
-	const minuteRightSvg = $derived(
-		import(`../assets/Nixie ${minuteRight}.svg?raw`).then((m) => m.default)
-	);
 </script>
 
 <div class="clock">
 	<div class="digit">
-		{#await hourLeftSvg then svg}
+		{#await import(`../assets/Nixie ${hourLeft}.svg?raw`) then { default: svg }}
 			{@html svg}
 		{/await}
 	</div>
 	<div class="digit">
-		{#await hourRightSvg then svg}
+		{#await import(`../assets/Nixie ${hourRight}.svg?raw`) then { default: svg }}
 			{@html svg}
 		{/await}
 	</div>
 	<div class="digit">
-		{#await minuteLeftSvg then svg}
+		{#await import(`../assets/Nixie ${minuteLeft}.svg?raw`) then { default: svg }}
 			{@html svg}
 		{/await}
 	</div>
 	<div class="digit">
-		{#await minuteRightSvg then svg}
+		{#await import(`../assets/Nixie ${minuteRight}.svg?raw`) then { default: svg }}
 			{@html svg}
 		{/await}
 	</div>
