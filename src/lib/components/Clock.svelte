@@ -1,16 +1,7 @@
 <script lang="ts">
-	import nixie0 from '$lib/assets/Nixie 0.svg';
-	import nixie1 from '$lib/assets/Nixie 1.svg';
-	import nixie2 from '$lib/assets/Nixie 2.svg';
-	import nixie3 from '$lib/assets/Nixie 3.svg';
-	import nixie4 from '$lib/assets/Nixie 4.svg';
-	import nixie5 from '$lib/assets/Nixie 5.svg';
-	import nixie6 from '$lib/assets/Nixie 6.svg';
-	import nixie7 from '$lib/assets/Nixie 7.svg';
-	import nixie8 from '$lib/assets/Nixie 8.svg';
-	import nixie9 from '$lib/assets/Nixie 9.svg';
-
-	const nixies = [nixie0, nixie1, nixie2, nixie3, nixie4, nixie5, nixie6, nixie7, nixie8, nixie9];
+	const getNixieSvg = (num: number): string => {
+		return new URL(`../assets/Nixie ${num}.svg`, import.meta.url).href;
+	};
 
 	const { time }: { time: Date } = $props();
 
@@ -20,8 +11,16 @@
 </script>
 
 <div class="clock">
-	<div class="digit"><img alt={hourLeft.toString()} src={nixies[hourLeft]} /></div>
-	<div class="digit"><img alt={hourRight.toString()} src={nixies[hourRight]} /></div>
-	<div class="digit"><img alt={minuteLeft.toString()} src={nixies[minuteLeft]} /></div>
-	<div class="digit"><img alt={minuteRight.toString()} src={nixies[minuteRight]} /></div>
+	<div class="digit">
+		<img alt={hourLeft.toString()} src={getNixieSvg(hourLeft)} />
+	</div>
+	<div class="digit">
+		<img alt={hourRight.toString()} src={getNixieSvg(hourRight)} />
+	</div>
+	<div class="digit">
+		<img alt={minuteLeft.toString()} src={getNixieSvg(minuteLeft)} />
+	</div>
+	<div class="digit">
+		<img alt={minuteRight.toString()} src={getNixieSvg(minuteRight)} />
+	</div>
 </div>
