@@ -1,26 +1,43 @@
 <script lang="ts">
-	const getNixieSvg = (num: number): string => {
-		return new URL(`../assets/Nixie ${num}.svg`, import.meta.url).href;
-	};
-
 	const { time }: { time: Date } = $props();
 
 	const [hours, minutes] = $derived(time.toLocaleTimeString().split(':'));
 	const [hourLeft, hourRight] = $derived(hours.split('').map(Number));
 	const [minuteLeft, minuteRight] = $derived(minutes.split('').map(Number));
+
+	const hourLeftSvg = $derived(
+		import(`../assets/Nixie ${hourLeft}.svg?raw`).then((m) => m.default)
+	);
+	const hourRightSvg = $derived(
+		import(`../assets/Nixie ${hourRight}.svg?raw`).then((m) => m.default)
+	);
+	const minuteLeftSvg = $derived(
+		import(`../assets/Nixie ${minuteLeft}.svg?raw`).then((m) => m.default)
+	);
+	const minuteRightSvg = $derived(
+		import(`../assets/Nixie ${minuteRight}.svg?raw`).then((m) => m.default)
+	);
 </script>
 
 <div class="clock">
 	<div class="digit">
-		<img alt={hourLeft.toString()} src={getNixieSvg(hourLeft)} />
+		{#await hourLeftSvg then svg}
+			{@html svg}
+		{/await}
 	</div>
 	<div class="digit">
-		<img alt={hourRight.toString()} src={getNixieSvg(hourRight)} />
+		{#await hourRightSvg then svg}
+			{@html svg}
+		{/await}
 	</div>
 	<div class="digit">
-		<img alt={minuteLeft.toString()} src={getNixieSvg(minuteLeft)} />
+		{#await minuteLeftSvg then svg}
+			{@html svg}
+		{/await}
 	</div>
 	<div class="digit">
-		<img alt={minuteRight.toString()} src={getNixieSvg(minuteRight)} />
+		{#await minuteRightSvg then svg}
+			{@html svg}
+		{/await}
 	</div>
 </div>
