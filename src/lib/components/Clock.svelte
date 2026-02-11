@@ -1,9 +1,12 @@
 <script lang="ts">
 	const { time }: { time: Date } = $props();
 
-	const [hours, minutes] = $derived(time.toLocaleTimeString().split(':'));
-	const [hourLeft, hourRight] = $derived(hours.split('').map(Number));
-	const [minuteLeft, minuteRight] = $derived(minutes.split('').map(Number));
+	const [hourLeft, hourRight] = $derived(
+		String(time.getHours()).padStart(2, '0').split('').map(Number)
+	);
+	const [minuteLeft, minuteRight] = $derived(
+		String(time.getMinutes()).padStart(2, '0').split('').map(Number)
+	);
 </script>
 
 <div class="clock">
